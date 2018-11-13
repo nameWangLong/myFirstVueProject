@@ -6,7 +6,10 @@
    </header>
    <!-- 路由展示区 -->
 	 <div class="main_container">
-		 <router-view></router-view>
+		  <transition >
+				 <router-view></router-view>
+			</transition>
+		
 	 </div>
    <!-- 底部导航切换 -->
    <footer>
@@ -41,5 +44,22 @@
 <style lang="scss" scoped>
 .main_container {
   margin-top: 40px;
+  // 设置动画左右切换组件不会显示滚动条
+  overflow-x: hidden;
+}
+
+// 定义动画
+.v-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+  position: absolute;
+}
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease;
 }
 </style>
