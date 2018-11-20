@@ -26,7 +26,10 @@ module.exports = {
       // limit 给定的值，是图片的大小，单位是 byte， 如果我们引用的 图片，大于或等于给定的 limit值，则不会被转为base64格式的字符串， 如果 图片小于给定的 limit 值，则会被转为 base64的字符串
       { test: /\.(ttf|eot|svg|woff|woff2)$/, use: 'url-loader' }, // 处理 字体文件的 loader 
       { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ }, // 配置 Babel 来转换高级的ES语法
-      { test: /\.vue$/, use: 'vue-loader' } // 处理 .vue 文件的 loader
+      { test: /\.vue$/, use: 'vue-loader' }, // 处理 .vue 文件的 loader
+      {
+        test: /vue-preview.src.*?js$/, use: ['babel', 'babel-loader']
+      }
     ]
   },
   resolve: {
@@ -34,4 +37,9 @@ module.exports = {
       // "vue$": "vue/dist/vue.js"
     }
   }
+
+
+
+
+
 }
