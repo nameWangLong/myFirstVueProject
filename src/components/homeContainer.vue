@@ -37,11 +37,26 @@ export default {
   data() {
     return {
       lunbotulist: [
-        { location: "../../src/images/h01.jpg" },
-        { location: "../../src/images/h02.jpg" },
-        { location: "../../src/images/h03.jpg" },
-        { location: "../../src/images/h04.jpg" },
-        { location: "../../src/images/h05.jpg" }
+        {
+          location:
+            "//m.360buyimg.com/mobilecms/jfs/t27679/88/2027396411/96705/71532ba7/5bf61ddaNd6de5921.jpg!cr_1125x549_0_72"
+        },
+        {
+          location:
+            "//m.360buyimg.com/mobilecms/s1125x690_jfs/t28222/353/384389987/246164/1fcab992/5bf24abdN78c4fbb6.jpg!cr_1125x549_0_72!q70.jpg.dpg"
+        },
+        {
+          location:
+            "//m.360buyimg.com/mobilecms/jfs/t28498/110/396466340/105109/ae4dc5b2/5bf22146N0c83c836.jpg!cr_1125x549_0_72"
+        },
+        {
+          location:
+            "//m.360buyimg.com/mobilecms/jfs/t27679/88/2027396411/96705/71532ba7/5bf61ddaNd6de5921.jpg!cr_1125x549_0_72"
+        },
+        {
+          location:
+            "//m.360buyimg.com/mobilecms/s1125x690_jfs/t29128/141/466185370/189971/da7042ae/5bf3edb6N8ad8636a.jpg!cr_1125x549_0_72!q70.jpg.dpg"
+        }
       ]
     };
   },

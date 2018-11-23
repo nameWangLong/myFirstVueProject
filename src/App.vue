@@ -2,8 +2,13 @@
   <div>
    <!-- 顶部 -->
    <header>
-     <mt-header fixed title="欢乐之家"></mt-header>
+     <mt-header fixed title="欢乐之家">
+    
+    <mt-button icon="back" slot="left" @click="goPrepage" v-show="flag">返回</mt-button>
+  
+     </mt-header>
    </header>
+    
    <!-- 路由展示区 -->
 	 <div class="main_container">
 		  <transition >
@@ -26,7 +31,7 @@
 			</router-link>
 			<router-link class="mui-tab-item-wlong" to="/shopCar">
 				<span class=" mui-icon mui-icon-extra mui-icon-extra-cart">
-					<span class="mui-badge" id="badge">0</span>
+					<span class="mui-badge" id="badge">{{ $store.getters.getAllCount }}</span>
 				</span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
@@ -40,6 +45,30 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      flag: false
+    };
+  },
+  created() {
+    this.flag = this.$route.path === "/home" ? false : true;
+  },
+  methods: {
+    goPrepage() {
+      this.$router.go(-1);
+    }
+  },
+  watch: {
+    "$route.path": function(newVal) {
+      if (newVal === "/home") {
+        this.flag = false;
+      } else {
+        this.flag = true;
+      }
+    }
+  }
+};
 </script>
 
 
@@ -95,5 +124,8 @@
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.mint-header.is-fixed button {
+  z-index: 1;
 }
 </style>

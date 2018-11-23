@@ -29,7 +29,7 @@ var router = new VueRouter({
     { path: '/home/photoList', component: photolist },
     { path: '/home/photoinfo', component: photoinfo },
     { path: '/home/goodsList', component: goodsList },
-    { path: '/home/goodsinfo/:id', component: goodsinfo },
+    { path: '/home/goodsinfo/:id', component: goodsinfo, name: 'goodsinfo' },
     { path: '/home/goodIntroduce/:id', component: goodIntroduce, name: 'goodIntroduce' },
     { path: '/home/goodComent/:id', component: goodComent, name: 'goodComent' }
 

@@ -2,7 +2,7 @@
 <div>
   <div class="goodlist">
       <ul>
-        <li v-for="item in goodlist" :key="item.id" @click="gogoodsInfo(item.id)"><a href="javascript:;"  >
+        <li v-for="item in goodlist" :key="item.id" @click="gogoodsInfo(item.id,item.price)"><a href="javascript:;"  >
           <img :src="item.src" alt="">
           <div class="title"> {{item.title}}</div>
            <div class="public">
@@ -43,7 +43,7 @@ export default {
             "//img12.360buyimg.com/mobilecms/s308x396_jfs/t25108/210/446693062/412354/a25c7e11/5b6fefcbN344b9232.jpg!cc_308x396!q70.dpg.webp",
           title:
             "凯丹妮小西装女 职业装女装套装修身长袖工作女 蓝马甲+裤子+灰色衬衫 4XL（建议140-150斤穿）",
-          id: 4,
+          id: 2,
           price: 218,
           coment: "4505"
         },
@@ -52,7 +52,7 @@ export default {
             "//img12.360buyimg.com/mobilecms/s308x396_jfs/t1/3150/10/8256/371657/5ba8a128Eeeb67a75/fce6c2fc67298ad4.jpg!cc_308x396!q70.dpg.webp",
           title:
             "  森扮加绒衬衫女长袖条纹中长款2018新款春秋韩版秋冬职业OL上衣衬衣 红色 不加绒 XL  ",
-          id: 12,
+          id: 3,
           price: 108,
           coment: "4505"
         },
@@ -61,7 +61,7 @@ export default {
             "//img11.360buyimg.com/n2/s370x474_jfs/t1/4755/40/1298/285963/5b93ac6cE39324cde/c3d7cc12c0a7e10e.jpg!cc_370x474!q70.jpg",
           title:
             "南极人 针织衫女2018秋冬新品圆领时尚纯色毛衣女套头长袖加厚保暖宽松大码打底衫上衣 Z1501 深咖 M",
-          id: 3,
+          id: 4,
           price: 228,
           coment: "4505"
         },
@@ -134,9 +134,12 @@ export default {
     };
   },
   methods: {
-    gogoodsInfo(id) {
+    gogoodsInfo(id, price) {
       // 跳转到商品详情页，并传递参数id
-      this.$router.push({ path: "/home/goodsinfo/" + id });
+      this.$router.push({
+        name: "goodsinfo",
+        params: { id: id }
+      });
     }
   }
 };

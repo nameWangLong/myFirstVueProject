@@ -67,6 +67,7 @@ import swiper from "../subComponents/swip.vue";
 export default {
   data() {
     return {
+      id: this.$route.params.id,
       lunbotulist: [
         {
           src:
@@ -96,19 +97,34 @@ export default {
       purchase: {
         title: "mhk冬季长款羽绒服男中长款连帽大衣加厚外套男青年男装衣服新款",
         prePrice: 998,
-        nowPrice: 668
+        nowPrice: 688
       },
       goodsParams: {
-        id: "456556895",
+        id: "2",
         num: 200,
         time: "2018-9-14"
       },
       ballFlag: false,
-      selectedCount: 1
+      selectedCount: 1,
+      relectprcie: [
+        { id: 0, price: 499 },
+        { id: 1, price: 99 },
+        { id: 2, price: 218 },
+        { id: 3, price: 108 },
+        { id: 4, price: 228 },
+        { id: 5, price: 123 },
+        { id: 6, price: 499 },
+        { id: 7, price: 99 },
+        { id: 8, price: 218 },
+        { id: 9, price: 108 },
+        { id: 10, price: 228 },
+        { id: 11, price: 123 }
+      ]
     };
   },
   created() {
     this.getlunbotu();
+    this.updateprice();
   },
   methods: {
     getlunbotu() {
@@ -128,8 +144,25 @@ export default {
         params: { id }
       });
     },
+    updateprice() {
+      var id = this.$route.params.id;
+      console.log(id);
+      this.relectprcie.forEach(item => {
+        if (item.id == id) {
+          this.purchase.nowPrice = item.price;
+        }
+      });
+    },
     goShopCar() {
       this.ballFlag = !this.ballFlag;
+      // 拼接一个商品对象，然后调用store中moutation中相应的方法，将数据保存在store中state
+      var goodinfo = {
+        id: this.id,
+        count: this.selectedCount,
+        price: this.purchase.nowPrice,
+        selected: true
+      };
+      this.$store.commit("addToCar", goodinfo);
     },
     beforeEnter(el) {
       el.style.transform = "translate(0,0)";
@@ -151,8 +184,7 @@ export default {
       this.ballFlag = !this.ballFlag;
     },
     getCount() {
-      this.selectedCount = this.$refs.num;
-      console.log(this.selectedCount.value);
+      this.selectedCount = this.$refs.num.value;
     }
   },
   components: {

@@ -88,3 +88,4 @@ var vm =new Vue({
 1. 组件想使用store中state的数据通过 `$store.state.***`
 2. vuex 中的Mutation相当于methods: 定义方法，第一个参数为state, 
    - 其他组件通过 `this.$store.commit('methodname',param1)`
+3. 数组删除元素  .splice(i,1)  //从当前位置删除1位
